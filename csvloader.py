@@ -74,6 +74,7 @@ class CsvLoader(object):
 
         logging.getLogger('CsvLoader').info('Finished loading to table "{}", closing connection.'.format(table_name))
         connection.close()
+        os.remove(work_file)
 
     def _read_headers(self, file_path, delimiter=DEFAULT_DELIMITER, quote_char=DEFAULT_QUOTE_CHAR,
                       escape_char=DEFAULT_ESCAPE_CHAR, encoding="utf-8"):
